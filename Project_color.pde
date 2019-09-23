@@ -10,7 +10,7 @@ int mode = 3;
 int point = 0;
 int highpt = 0;
 int life = 3;
-int timer;
+int timer = 300;
 
 color red = #DE4038;
 color orange = #F5A554;
@@ -23,13 +23,14 @@ color purple = #A67FC1;
 //String[] words = {"RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE"};
 
 PFont beatstreet;
+PFont typewriter;
 
 void setup() {
   size(700, 600);
   beatstreet = createFont("beatstreet.ttf", 20);
+  typewriter = createFont("rough_typewriter.otf", 20);
   textAlign(CENTER);
   rectMode(CENTER);
-  noStroke();
 }
 
 void draw() {

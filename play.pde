@@ -1,11 +1,14 @@
 int rnumber = int(random(0, 6));
 int rcolor = int(random(0, 6));
+int rdom = int(random(0, 2));
 color[] colors = new color[6];//{red, orange, yellow, green, blue, purple};
 String[] words = new String[6];
 boolean tf;
+float AS = 0;
+float AE = 0.1;
 
 void play() {
-  background(255);
+  background(0);
   
   words[0] = "RED";
   words[1] = "ORANGE";
@@ -23,17 +26,40 @@ void play() {
   colors[5] = purple;
   
   fill(#A7A7A7);
-  textSize(50);
+  textFont(typewriter, 17);
   text("true", 150, 100);
   text("false", 550, 100);
   text("score: "+point, 550, 500);
   text("life: " +life, 150, 500);
-  rect(width/2, 100, 20, 200);
-  rect(width/2, 475, 20, 250);
+  
+  noStroke();
+  fill(#A7A7A7);
+  rect(width/2, 75, 5, 150);
+  rect(width/2, 500, 5, 200);
+  
+  stroke(#A7A7A7);
+  strokeWeight(5);
+  noFill();
+  //ellipse(width/2, height/2-25, 250, 250);
+  arc(width/2, height/2-25, 250, 250, AS, AE);
+  AS = AS + 0.05;
+  AE = AE + 0.05;
+  
+  //noStroke();
+  //fill(0);
+  //rect(width/2, height/2-30, 400, 100);
   
   fill(colors[rcolor]);
-  textFont(beatstreet, 100);
+  textFont(typewriter, 50);
   text(words[rnumber], width/2, height/2);
+  
+  //if (rdom == 0) {
+  //  rnumber = rcolor;
+  //  tf = true;
+  //} else if (rdom == 1) {
+  //  rnumber != rcolor;
+  //  tf = false;
+  //}
   
   if (rnumber == rcolor) {
     tf = true;
@@ -56,6 +82,7 @@ void playClicks() {
     point = point + 1;
     rnumber = int(random(0, 6));
     rcolor = int(random(0, 6));
+    rdom = int(random(0, 2));
   }
   
   if (mouseX<width/2 && tf == false || mouseX>width/2 && tf == true) {
@@ -63,6 +90,7 @@ void playClicks() {
     life = life - 1;
     rnumber = int(random(0, 6));
     rcolor = int(random(0, 6));
+    rdom = int(random(0, 2));
   }
   
   
