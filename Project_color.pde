@@ -10,7 +10,6 @@ int mode = 3;
 int point = 0;
 int highpt = 0;
 int life = 3;
-int timer = 300;
 
 color red = #DE4038;
 color orange = #F5A554;

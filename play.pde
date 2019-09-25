@@ -4,8 +4,8 @@ int rdom = int(random(0, 2));
 color[] colors = new color[6];//{red, orange, yellow, green, blue, purple};
 String[] words = new String[6];
 boolean tf;
-float AS = 0;
-float AE = 0.1;
+float AS = PI+HALF_PI;
+float AE = PI+HALF_PI+TWO_PI;
 
 void play() {
   background(0);
@@ -42,24 +42,30 @@ void play() {
   noFill();
   //ellipse(width/2, height/2-25, 250, 250);
   arc(width/2, height/2-25, 250, 250, AS, AE);
-  AS = AS + 0.05;
-  AE = AE + 0.05;
+  //AE = AE - 0.06;
   
-  //noStroke();
-  //fill(0);
-  //rect(width/2, height/2-30, 400, 100);
+  if (AE <= AS) {
+    point = point - 5;
+    life = life - 1;
+    AE = PI+HALF_PI+TWO_PI;
+    //rnumber = int(random(0, 6));
+    //rcolor = int(random(0, 6));
+    rdom = int(random(0, 2));
+  }
   
   fill(colors[rcolor]);
-  textFont(typewriter, 50);
-  text(words[rnumber], width/2, height/2);
+  textFont(typewriter,24);
+  text(words[rnumber], width/2, height/2-10);
   
-  //if (rdom == 0) {
-  //  rnumber = rcolor;
-  //  tf = true;
-  //} else if (rdom == 1) {
-  //  rnumber != rcolor;
-  //  tf = false;
-  //}
+  if (rdom == 0) {
+    rnumber = int(random(0, 6));
+    rnumber = rcolor;
+  } else if (rdom == 1) {
+    while (rnumber == rcolor) {
+      rnumber = int(random(0, 6));
+      rcolor = int(random(0, 6));
+    }
+  }
   
   if (rnumber == rcolor) {
     tf = true;
@@ -79,19 +85,20 @@ void play() {
 
 void playClicks() {
   if (mouseX<width/2 && tf == true || mouseX>width/2 && tf == false) {
+    AE = PI+HALF_PI+TWO_PI;
     point = point + 1;
-    rnumber = int(random(0, 6));
-    rcolor = int(random(0, 6));
     rdom = int(random(0, 2));
+    //rnumber = int(random(0, 6));
+    //rcolor = int(random(0, 6));
   }
   
   if (mouseX<width/2 && tf == false || mouseX>width/2 && tf == true) {
-    point = point - 3;
+    AE = PI+HALF_PI+TWO_PI;
+    point = point - 5;
     life = life - 1;
-    rnumber = int(random(0, 6));
-    rcolor = int(random(0, 6));
     rdom = int(random(0, 2));
+    //rnumber = int(random(0, 6));
+    //rcolor = int(random(0, 6));
   }
-  
   
 }
