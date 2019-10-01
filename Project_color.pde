@@ -6,10 +6,10 @@ final int intro = 1;
 final int menu = 2;
 final int play = 3;
 final int gameover = 4;
-int mode = 3;
+int mode = 1;
 int point = 0;
 int highpt = 0;
-int life = 3;
+int life = 1;
 
 color red = #DE4038;
 color orange = #F5A554;

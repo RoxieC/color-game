@@ -9,6 +9,6 @@ void gameover() {
 
 void gameoverClicks() {
   mode = intro;
-  life = 3;
+  life = 1;
   point = 0;
 }

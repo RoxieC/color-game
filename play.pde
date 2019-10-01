@@ -42,7 +42,7 @@ void play() {
   noFill();
   //ellipse(width/2, height/2-25, 250, 250);
   arc(width/2, height/2-25, 250, 250, AS, AE);
-  //AE = AE - 0.06;
+  AE = AE - 0.06;
   
   if (AE <= AS) {
     point = point - 5;
